@@ -1,0 +1,1 @@
+# Pokemon Scraper for Sereb**
