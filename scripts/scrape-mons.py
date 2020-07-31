@@ -30,25 +30,25 @@ def get_mons(url):
         try:
             cols = row.findAll('td')
             num_raw = cols[NUM_IDX].text
+            mon = {}
             num = ''
-            for c in list(num_raw):
+            for c in num_raw:
                 if c.isdigit():
                     num += c
-            name = cols[NAME_IDX].find('a').text
+            mon[NUM_KEY] = int(num)
+            mon[NAME_KEY] = cols[NAME_IDX].find('a').text
 
             types_tags = cols[TYPES_IDX].findAll('a')
-            types = []
+            mon[TYPE_KEY] = []
             for a in types_tags:
-                types.append(a['href'].split('/')[-1])
+                mon[TYPE_KEY].append(a['href'].split('/')[-1])
 
-            hp = cols[HP_IDX].text
-            atk = cols[ATK_IDX].text
-            def_ = cols[DEF_IDX].text
-            sp_atk = cols[SPATK_IDX].text
-            sp_def = cols[SPDEF_IDX].text
-            spd = cols[SPD_IDX].text
-
-            mon = {NUM_KEY: int(num), NAME_KEY: name, TYPE_KEY: types, HP_KEY: int(hp), ATK_KEY: int(atk), DEF_KEY: int(def_), SPATK_KEY: int(sp_atk), SPDEF_KEY: int(sp_def), SPD_KEY: int(spd)}
+            mon[HP_KEY] = int(cols[HP_IDX].text)
+            mon[ATK_KEY] = int(cols[ATK_IDX].text)
+            mon[DEF_KEY] = int(cols[DEF_IDX].text)
+            mon[SPATK_KEY] = int(cols[SPATK_IDX].text)
+            mon[SPDEF_KEY] = int(cols[SPDEF_IDX].text)
+            mon[SPD_KEY] = int(cols[SPD_IDX].text)
             print(mon)
             mons.append(mon)
         except Exception as ex:
