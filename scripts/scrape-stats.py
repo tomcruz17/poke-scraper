@@ -31,6 +31,12 @@ def get_mons(url):
                     num += c
             name = cols[NAME_IDX].find('a').text
             LOGGER.info(name)
+
+            types_tags = cols[TYPES_IDX].findAll('a')
+            types = []
+            for a in types_tags:
+                types.append(a['href'].split('/')[-1])
+
             hp = cols[HP_IDX].text
             atk = cols[ATK_IDX].text
             def_ = cols[DEF_IDX].text
@@ -38,10 +44,10 @@ def get_mons(url):
             sp_def = cols[SPDEF_IDX].text
             spd = cols[SPD_IDX].text
 
-            mon = {NUM_KEY: num, NAME_KEY: name, HP_KEY: hp, DEF_KEY: def_, SPATK_KEY: sp_atk, SPDEF_KEY: sp_def, SPD_KEY: spd}
+            mon = {NUM_KEY: num, NAME_KEY: name, TYPE_KEY: types, HP_KEY: hp, DEF_KEY: def_, SPATK_KEY: sp_atk, SPDEF_KEY: sp_def, SPD_KEY: spd}
             mons.append(mon)
         except Exception as ex:
-            LOGGER.error(f"Can't parse row {index}.")
+            LOGGER.error(f"Can't parse row {index}. {ex}")
         
     LOGGER.info(f'Found {len(mons)}.')
     LOGGER.info(f'Done getting Pokemons from {url}.')
@@ -51,9 +57,9 @@ def get_mons(url):
 def write_to_csv(mons, filename):
     with open(filename, 'w', encoding='utf-8', newline = '') as csv_file:
         writer = csv.writer(csv_file)
-        writer.writerow([NUM_KEY, NAME_KEY, HP_KEY, ATK_KEY, DEF_KEY, SPATK_KEY, SPDEF_KEY, SPD_KEY])
+        writer.writerow([NUM_KEY, NAME_KEY, TYPE_KEY, HP_KEY, ATK_KEY, DEF_KEY, SPATK_KEY, SPDEF_KEY, SPD_KEY])
         for mon in mons:
-            writer.writerow([mon[NUM_KEY], mon[NAME_KEY], mon[HP_KEY], mon[DEF_KEY], mon[SPATK_KEY], mon[SPDEF_KEY], mon[SPD_KEY]])
+            writer.writerow([mon[NUM_KEY], mon[NAME_KEY], mon[TYPE_KEY], mon[HP_KEY], mon[DEF_KEY], mon[SPATK_KEY], mon[SPDEF_KEY], mon[SPD_KEY]])
 
 def write_to_json(mons, filename):
     """
