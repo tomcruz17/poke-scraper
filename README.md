@@ -1,35 +1,37 @@
 # Pokemon Scraper
 
-Retrieves ALL 893 Pokemon (Gen I to XIII) from Serebii in a single request and saves to **.json** or **.csv file**. Includes only basic information like types and stats.
+Retrieves **ALL 893 Pokemon** (Gen I to XIII) from *Serebii* in a single request and saves to **.json** or **.csv file**. Includes basic information only like types and stats.
 
 ## Sample
 
 ```
     {
-        "num": "892",
+        "num": 892,
         "name": "Urshifu",
         "types": [
             "fighting",
             "dark"
         ],
-        "hp": "100",
-        "def": "100",
-        "sp_atk": "63",
-        "sp_def": "60",
-        "spd": "97"
+        "hp": 100,
+        "atk": 130,
+        "def": 100,
+        "sp_atk": 63,
+        "sp_def": 60,
+        "spd": 97
     },
     {
-        "num": "893",
+        "num": 893,
         "name": "Zarude",
         "types": [
             "dark",
             "grass"
         ],
-        "hp": "105",
-        "def": "105",
-        "sp_atk": "70",
-        "sp_def": "95",
-        "spd": "105"
+        "hp": 105,
+        "atk": 120,
+        "def": 105,
+        "sp_atk": 70,
+        "sp_def": 95,
+        "spd": 105
     }
 ```
 
