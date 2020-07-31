@@ -45,6 +45,6 @@ Retrieves **ALL 893 Pokemon** (Gen I to XIII) from *Serebii* in a single request
 
 1. Install dependencies: `pip install -r requirements.txt`
 2. Run via python
-    * Linux - `python3 scripts/scrape-mons.py --output /path/pokedex.json`
-    * Windows - `python scripts/scrape-mons.py --output /path/pokedex.json`
+    * Linux - `python3 scripts/scrape-mons.py --output path/pokedex.json`
+    * Windows - `python scripts/scrape-mons.py --output path/pokedex.json`
 
