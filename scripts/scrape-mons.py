@@ -82,7 +82,7 @@ if __name__=='__main__':
             else:
                 write_to_json(mons, filename)
         except Exception as ex:
-            LOGGER.error(f'Error writing to {filename}.')
+            LOGGER.error(f'Error writing to {filename}. {ex}')
 
 
 
