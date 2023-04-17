@@ -1,6 +1,6 @@
 # Pokemon Scraper
 
-Retrieves **ALL 893 Pokemon** (Gen I to XIII) from *Serebii* in a single request and saves to **.json** or **.csv file**. Includes basic information only like types and stats.
+Retrieves **ALL Gen 1 to 9 Pokémons** from *Serebii* in a single request and saves to **.json** or **.csv file**. Includes basic information only like types and stats.
 
 ## Sample
 
@@ -47,4 +47,3 @@ Retrieves **ALL 893 Pokemon** (Gen I to XIII) from *Serebii* in a single request
 2. Run via python
     * Linux - `python3 scripts/scrape-mons.py --output path/pokedex.json`
     * Windows - `python scripts/scrape-mons.py --output path/pokedex.json`
-

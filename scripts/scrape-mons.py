@@ -14,7 +14,7 @@ from argparse import ArgumentParser
 logging.basicConfig(level=logging.INFO)
 LOGGER = logging.getLogger(__name__)
 
-PARSER = ArgumentParser(description='Pokémon scraper that gets all 893 Pokemon (Gen I to XIII) from Serebii.')
+PARSER = ArgumentParser(description='Pokémon scraper that gets all of Gen 1 to 9 Pokémon from Serebii.')
 PARSER.add_argument('-o', '--output', action='store', help='Saves the results to an output file: .json or .csv. Format is based on file extension.')
 ARGS = PARSER.parse_args()
 
@@ -53,7 +53,7 @@ def get_mons(url):
             mons.append(mon)
         except Exception as ex:
             LOGGER.error(f"Can't parse row {index}. {ex}")
-        
+
     LOGGER.info(f'Found {len(mons)}.')
     LOGGER.info(f'Done getting Pokemons from {url}.')
 
@@ -83,7 +83,3 @@ if __name__=='__main__':
                 write_to_json(mons, filename)
         except Exception as ex:
             LOGGER.error(f'Error writing to {filename}. {ex}')
-
-
-
-
